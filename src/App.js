@@ -14,13 +14,29 @@ const ProfilesContainer = styled.div`
 `;
 
 const App = () => {
+  const [profiles, updateProfiles] = React.useState([]);
+  console.log('logging before anything', profiles);
+  const addNewProfile = profileData => {
+    updateProfiles([...profiles, profileData]);
+  };
   return (
     <>
       <PageTitle />
-      <FormContainer />
+      <FormContainer add={addNewProfile} />
       <ProfilesContainer>
         {/* map through array of github profiles and render Profile component with prop */}
-        <Profile />
+
+        {profiles.length > 0
+          ? profiles.map((profile, id) => {
+              console.log(
+                'this is how long profile is ',
+                profiles.length,
+                profiles
+              );
+              id++;
+              return <Profile {...profile} key={id} />;
+            }, 0)
+          : ''}
       </ProfilesContainer>
     </>
   );

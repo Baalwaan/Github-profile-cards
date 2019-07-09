@@ -41,19 +41,18 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
-const Profile = props => {
+const Profile = ({ login, avatar_url, name, followers }) => {
   return (
     <ProfileCard>
       <ExitContainer>
         <img src={Exit} />
       </ExitContainer>
-      <Title>Profile</Title>
+      <Title>{login}</Title>
       <ProfileInfo>
-        <ProfileImg src="https://avatars3.githubusercontent.com/u/42354400?v=4" />
+        <ProfileImg src={avatar_url} />
         <StyledUl>
-          <Li>Name: Burhan Baalwaan</Li>
-          <Li>Name: FAC16 for life</Li>
-          <Li>Name: react is kl</Li>
+          <Li>Name: {name}</Li>
+          <Li>Followers: {followers}</Li>
         </StyledUl>
       </ProfileInfo>
     </ProfileCard>
