@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Exit from '../../../assets/close.png';
 
 const ProfileCard = styled.div`
-  background: yellow;
+  background: lightgray;
   border: solid black 1px;
   padding: 1em;
 `;
