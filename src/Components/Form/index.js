@@ -28,10 +28,31 @@ const Button = styled.button`
   background: black;
   color: white;
 `;
-const FormContainer = () => {
+const FormContainer = ({ setProfiles }) => {
+  const [inputVal, setInputVal] = React.useState('');
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    fetch(`https://api.github.com/users/${inputVal}
+    `)
+      .then(response => response.json())
+      .then(response => console.log('im coming from handlesubmit ', response))
+
+      .catch(err => console.log(err));
+
+    // setInputVal('');
+  };
+
   return (
-    <StyledForm>
-      <Input placeholder="Github Username here..." />
+    <StyledForm onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        placeholder="Github Username here..."
+        value={inputVal}
+        onChange={event => {
+          setInputVal(event.target.value);
+        }}
+      />
       <Button>Click Me!!!</Button>
     </StyledForm>
   );

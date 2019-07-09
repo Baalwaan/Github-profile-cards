@@ -34,7 +34,7 @@ const ProfileImg = styled.img`
   border: solid grey 2px;
 `;
 
-const styledUl = styled.ul``;
+const StyledUl = styled.ul``;
 
 const Li = styled.li`
   list-style: none;
@@ -50,11 +50,11 @@ const Profile = props => {
       <Title>Profile</Title>
       <ProfileInfo>
         <ProfileImg src="https://avatars3.githubusercontent.com/u/42354400?v=4" />
-        <styledUl>
+        <StyledUl>
           <Li>Name: Burhan Baalwaan</Li>
           <Li>Name: FAC16 for life</Li>
           <Li>Name: react is kl</Li>
-        </styledUl>
+        </StyledUl>
       </ProfileInfo>
     </ProfileCard>
   );
