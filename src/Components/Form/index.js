@@ -7,8 +7,9 @@ const StyledForm = styled.form`
   align-items: center;
   background: lightgray;
   max-width: 27em;
-  margin: auto;
+  margin: 2em auto;
   padding: 1em;
+  border: solid black 1px;
 `;
 
 const Input = styled.input`

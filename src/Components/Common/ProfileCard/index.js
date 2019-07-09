@@ -40,7 +40,7 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
-const Profile = ({ login, avatar_url, name, followers }) => {
+const Profile = ({ login, avatar_url, id, name, followers }) => {
   return (
     <ProfileCard>
       <ExitContainer>
@@ -50,6 +50,7 @@ const Profile = ({ login, avatar_url, name, followers }) => {
       <ProfileInfo>
         <ProfileImg src={avatar_url} />
         <StyledUl>
+          <Li>Id: {id}</Li>
           <Li>Name: {name}</Li>
           <Li>Followers: {followers}</Li>
         </StyledUl>
