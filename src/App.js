@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import FormContainer from './Components/Form';
+import Form from './Components/Form';
 import PageTitle from './Components/PageTitle';
 import Profile from './Components/Common/ProfileCard';
 
@@ -15,17 +15,16 @@ const ProfilesContainer = styled.div`
 
 const App = () => {
   const [profiles, updateProfiles] = React.useState([]);
-  console.log('logging before anything', profiles);
+
+  // function will concat new profile object from fetch in formContainer
   const addNewProfile = profileData => {
     updateProfiles([...profiles, profileData]);
   };
   return (
     <>
       <PageTitle />
-      <FormContainer add={addNewProfile} />
+      <Form add={addNewProfile} />
       <ProfilesContainer>
-        {/* map through array of github profiles and render Profile component with prop */}
-
         {profiles.length > 0
           ? profiles.map((profile, id) => {
               console.log(

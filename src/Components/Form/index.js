@@ -28,22 +28,24 @@ const Button = styled.button`
   background: black;
   color: white;
 `;
-const FormContainer = ({ add }) => {
+const Form = ({ add }) => {
   const [inputVal, setInputVal] = React.useState('');
-  const [profile, setProfile] = React.useState(null);
-  // console.log('this is ,', profiles);
 
   const handleSubmit = event => {
-    console.log('checkoing if im changed ', inputVal);
     event.preventDefault();
     fetch(`https://api.github.com/users/${inputVal}
     `)
       .then(response => response.json())
-      .then(response => setProfile(response))
-      .then(response => add(profile))
+      .then(response => {
+        if (response.message === 'Not Found') {
+          alert('Could not find user!');
+        } else {
+          add(response);
+        }
+      })
       .catch(err => console.log(err));
-
-    // setInputVal('');
+    // reset input value
+    setInputVal('');
   };
 
   return (
@@ -57,9 +59,9 @@ const FormContainer = ({ add }) => {
         }}
         required
       />
-      <Button>Click Me!!!</Button>
+      <Button>Click here!</Button>
     </StyledForm>
   );
 };
 
-export default FormContainer;
+export default Form;
