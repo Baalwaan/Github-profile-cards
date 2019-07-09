@@ -8,6 +8,7 @@ const StyledForm = styled.form`
   background: yellow;
   max-width: 27em;
   margin: auto;
+  padding: 1em;
 `;
 
 const Input = styled.input`
@@ -15,6 +16,8 @@ const Input = styled.input`
   border: dashed black 2px;
   min-height: 2em;
   font-size: 1.5em;
+  margin-bottom: 1em;
+  width: 80%;
 `;
 
 const Button = styled.button`
