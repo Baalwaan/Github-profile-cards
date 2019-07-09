@@ -5,7 +5,6 @@ import Exit from '../../../assets/close.png';
 
 const ProfileCard = styled.div`
   background: yellow;
-  width: 25em;
   border: solid black 1px;
   padding: 1em;
 `;
@@ -25,7 +24,7 @@ const ProfileInfo = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  min-width: 25em;
   padding: 0.75em;
 `;
 

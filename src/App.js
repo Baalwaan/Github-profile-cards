@@ -27,11 +27,6 @@ const App = () => {
       <ProfilesContainer>
         {profiles.length > 0
           ? profiles.map((profile, id) => {
-              console.log(
-                'this is how long profile is ',
-                profiles.length,
-                profiles
-              );
               id++;
               return <Profile {...profile} key={id} />;
             }, 0)
