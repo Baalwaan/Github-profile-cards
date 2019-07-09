@@ -1,6 +1,9 @@
 import React from 'react';
+import FormContainer from './Components/Form';
 // import './App.css';
 
-const App = () => <div>hi</div>;
+const App = () => {
+  return <FormContainer />;
+};
 
 export default App;
