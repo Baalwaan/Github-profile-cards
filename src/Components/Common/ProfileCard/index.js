@@ -13,6 +13,10 @@ const ExitContainer = styled.div`
   text-align: right;
 `;
 
+const ExitButton = styled.img`
+  cursor: pointer;
+`;
+
 const Title = styled.h2`
   text-align: center;
   padding: 0;
@@ -40,23 +44,34 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
+
+const 
+
 const Profile = ({ login, avatar_url, id, name, followers }) => {
-  return (
-    <ProfileCard>
-      <ExitContainer>
-        <img src={Exit} />
-      </ExitContainer>
-      <Title>{login}</Title>
-      <ProfileInfo>
-        <ProfileImg src={avatar_url} />
-        <StyledUl>
-          <Li>Id: {id}</Li>
-          <Li>Name: {name}</Li>
-          <Li>Followers: {followers}</Li>
-        </StyledUl>
-      </ProfileInfo>
-    </ProfileCard>
-  );
+  const [toClose, setToClose] = React.useState(false);
+
+  const handleClose = () => {
+    setToClose(true);
+  };
+
+  if (!toClose) {
+    return (
+      <ProfileCard>
+        <ExitContainer>
+          <ExitButton src={Exit} onClick={handleClose} title="Close" />
+        </ExitContainer>
+        <Title>{login}</Title>
+        <ProfileInfo>
+          <ProfileImg src={avatar_url} alt={name} />
+          <StyledUl>
+            <Li>Id: {id}</Li>
+            <Li>Name: {name}</Li>
+            <Li>Followers: {followers}</Li>
+          </StyledUl>
+        </ProfileInfo>
+      </ProfileCard>
+    );
+  } else return '';
 };
 
 export default Profile;

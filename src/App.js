@@ -20,6 +20,7 @@ const App = () => {
   const addNewProfile = profileData => {
     updateProfiles([...profiles, profileData]);
   };
+
   return (
     <>
       <PageTitle />
