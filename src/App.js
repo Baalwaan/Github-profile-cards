@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
       <PageTitle />
-      <Form add={addNewProfile} />
+      <Form add={addNewProfile} profilesLength={profiles.length} />
       <ProfilesContainer>
         {profiles.length > 0
           ? profiles.map((profile, id) => {

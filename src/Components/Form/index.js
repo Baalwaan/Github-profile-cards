@@ -33,11 +33,14 @@ const Input = styled.input`
 //   background: black;
 //   color: white;
 // `;
-const Form = ({ add }) => {
+const Form = ({ add, profilesLength }) => {
   const [inputVal, setInputVal] = React.useState('');
 
   const handleSubmit = event => {
     event.preventDefault();
+    if (profilesLength === 5) {
+      return alert('max team reached');
+    }
     fetch(`https://api.github.com/users/${inputVal}
     `)
       .then(response => response.json())
