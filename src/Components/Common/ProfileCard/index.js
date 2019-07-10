@@ -46,10 +46,9 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
-const AnchorTag = styled.div`
+const AnchorTag = styled.a`
   text-decoration: none;
-  :hover {
-  }
+  color: black;
 `;
 
 const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
@@ -65,9 +64,11 @@ const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
         <ExitContainer>
           <ExitButton src={Exit} onClick={handleClose} title="Close" />
         </ExitContainer>
-        <Title>{login}</Title>
+        <Title title={`${name}'s github profile`}>
+          <AnchorTag href={html_url}>{login}</AnchorTag>
+        </Title>
         <ProfileInfo>
-          <ProfileImg src={avatar_url} alt={name} />
+          <ProfileImg src={avatar_url} alt={name} title={name} />
           <StyledUl>
             <Li>ID: {id}</Li>
             <Li>Name: {name}</Li>
