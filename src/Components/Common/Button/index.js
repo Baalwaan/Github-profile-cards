@@ -8,6 +8,9 @@ const StyledButton = styled.button`
   outline: none;
   background: black;
   color: white;
+  :active {
+    transform: scale(0.9);
+  }
 `;
 
 const Button = ({ label }) => <StyledButton>{label}</StyledButton>;
