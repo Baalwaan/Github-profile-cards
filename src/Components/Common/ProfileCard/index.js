@@ -41,22 +41,30 @@ const Li = styled.li`
 `;
 
 const Profile = ({ login, avatar_url, id, name, followers }) => {
-  return (
-    <ProfileCard>
-      <ExitContainer>
-        <img src={Exit} />
-      </ExitContainer>
-      <Title>{login}</Title>
-      <ProfileInfo>
-        <ProfileImg src={avatar_url} />
-        <StyledUl>
-          <Li>Id: {id}</Li>
-          <Li>Name: {name}</Li>
-          <Li>Followers: {followers}</Li>
-        </StyledUl>
-      </ProfileInfo>
-    </ProfileCard>
-  );
+  const [toClose, setToClose] = React.useState(false);
+
+  const handleClose = () => {
+    setToClose(true);
+  };
+
+  if (!toClose) {
+    return (
+      <ProfileCard>
+        <ExitContainer>
+          <img src={Exit} onClick={handleClose} />
+        </ExitContainer>
+        <Title>{login}</Title>
+        <ProfileInfo>
+          <ProfileImg src={avatar_url} />
+          <StyledUl>
+            <Li>Id: {id}</Li>
+            <Li>Name: {name}</Li>
+            <Li>Followers: {followers}</Li>
+          </StyledUl>
+        </ProfileInfo>
+      </ProfileCard>
+    );
+  } else return '';
 };
 
 export default Profile;
