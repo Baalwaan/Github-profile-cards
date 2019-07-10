@@ -45,7 +45,7 @@ const StyledUl = styled.ul`
   width: 10em;
 `;
 
-const Li = styled.li`
+const StyledLi = styled.li`
   list-style: none;
   padding: 0.5em;
 `;
@@ -74,9 +74,9 @@ const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
         <ProfileInfo>
           <ProfileImg src={avatar_url} alt={name} title={name} />
           <StyledUl>
-            <Li>ID: {id}</Li>
-            <Li>Name: {name}</Li>
-            <Li>Followers: {followers}</Li>
+            <StyledLi>ID: {id}</StyledLi>
+            <StyledLi>Name: {name}</StyledLi>
+            <StyledLi>Followers: {followers}</StyledLi>
           </StyledUl>
         </ProfileInfo>
         <Button label="Check Profile" />
