@@ -46,12 +46,14 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
+
 const AnchorTag = styled.a`
   text-decoration: none;
   color: black;
 `;
 
 const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
+
   const [toClose, setToClose] = React.useState(false);
 
   const handleClose = () => {
