@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from '../Button';
 import Exit from '../../../assets/close.png';
 
 const ProfileCard = styled.div`
@@ -8,6 +9,7 @@ const ProfileCard = styled.div`
   border: solid black 1px;
   // max-width: 27em;
   padding: 1em;
+  text-align: center;
 `;
 
 const ExitContainer = styled.div`
@@ -30,6 +32,7 @@ const ProfileInfo = styled.div`
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  margin: 1.5em 0;
 `;
 
 const ProfileImg = styled.img`
@@ -38,6 +41,7 @@ const ProfileImg = styled.img`
 `;
 
 const StyledUl = styled.ul`
+  text-align: left;
   width: 10em;
 `;
 
@@ -46,14 +50,12 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
-
 const AnchorTag = styled.a`
   text-decoration: none;
   color: black;
 `;
 
 const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
-
   const [toClose, setToClose] = React.useState(false);
 
   const handleClose = () => {
@@ -77,6 +79,7 @@ const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
             <Li>Followers: {followers}</Li>
           </StyledUl>
         </ProfileInfo>
+        <Button label="Check Profile" />
       </ProfileCard>
     );
   } else return '';

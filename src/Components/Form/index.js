@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Button from '../Common/Button';
+
+console.log('this is button', Button);
+
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -21,14 +25,14 @@ const Input = styled.input`
   width: 80%;
 `;
 
-const Button = styled.button`
-  min-width: 5em;
-  font-size: 1.5em;
-  padding: 5px;
-  outline: none;
-  background: black;
-  color: white;
-`;
+// const Button = styled.button`
+//   min-width: 5em;
+//   font-size: 1.5em;
+//   padding: 5px;
+//   outline: none;
+//   background: black;
+//   color: white;
+// `;
 const Form = ({ add }) => {
   const [inputVal, setInputVal] = React.useState('');
 
@@ -60,7 +64,7 @@ const Form = ({ add }) => {
         }}
         required
       />
-      <Button>Click here!</Button>
+      <Button label="Click here!!!" />
     </StyledForm>
   );
 };
