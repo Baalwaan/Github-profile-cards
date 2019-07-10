@@ -46,6 +46,12 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
+const AnchorTag = styled.div`
+  text-decoration: none;
+  :hover {
+  }
+`;
+
 const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
   const [toClose, setToClose] = React.useState(false);
 
