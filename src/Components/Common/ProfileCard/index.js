@@ -44,6 +44,9 @@ const Li = styled.li`
   padding: 0.5em;
 `;
 
+
+const 
+
 const Profile = ({ login, avatar_url, id, name, followers }) => {
   const [toClose, setToClose] = React.useState(false);
 
