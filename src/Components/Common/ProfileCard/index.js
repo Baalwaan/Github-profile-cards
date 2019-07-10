@@ -65,36 +65,31 @@ const Profile = ({
   profileNumber,
   remove
 }) => {
-  const [toClose, setToClose] = React.useState(false);
-
   const handleClose = () => {
     remove(profileNumber);
-    setToClose(true);
   };
 
-  if (!toClose) {
-    return (
-      <ProfileCard>
-        <ExitContainer>
-          <ExitButton src={Exit} onClick={handleClose} title="Close" />
-        </ExitContainer>
-        <Title title={`${name}'s github profile`}>
-          <AnchorTag href={html_url}>{login}</AnchorTag>
-        </Title>
-        <ProfileInfo>
-          <ProfileImg src={avatar_url} alt={name} title={name} />
-          <StyledUl>
-            <StyledLi>ID: {id}</StyledLi>
-            <StyledLi>Name: {name}</StyledLi>
-            <StyledLi>Followers: {followers}</StyledLi>
-          </StyledUl>
-        </ProfileInfo>
-        <AnchorTag href={html_url} target="_blank">
-          <Button label="Check Profile" />
-        </AnchorTag>
-      </ProfileCard>
-    );
-  } else return '';
+  return (
+    <ProfileCard>
+      <ExitContainer>
+        <ExitButton src={Exit} onClick={handleClose} title="Close" />
+      </ExitContainer>
+      <Title title={`${name}'s github profile`}>
+        <AnchorTag href={html_url}>{login}</AnchorTag>
+      </Title>
+      <ProfileInfo>
+        <ProfileImg src={avatar_url} alt={name} title={name} />
+        <StyledUl>
+          <StyledLi>ID: {id}</StyledLi>
+          <StyledLi>Name: {name}</StyledLi>
+          <StyledLi>Followers: {followers}</StyledLi>
+        </StyledUl>
+      </ProfileInfo>
+      <AnchorTag href={html_url} target="_blank">
+        <Button label="Check Profile" />
+      </AnchorTag>
+    </ProfileCard>
+  );
 };
 
 export default Profile;

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import Button from '../Common/Button';
 
-console.log('this is button', Button);
-
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -25,20 +23,14 @@ const Input = styled.input`
   width: 80%;
 `;
 
-// const Button = styled.button`
-//   min-width: 5em;
-//   font-size: 1.5em;
-//   padding: 5px;
-//   outline: none;
-//   background: black;
-//   color: white;
-// `;
-const Form = ({ add, profilesLength }) => {
+const Form = ({ add, profiles }) => {
   const [inputVal, setInputVal] = React.useState('');
+  const [id, generateId] = React.useState(1);
 
   const handleSubmit = event => {
+    console.log(profiles);
     event.preventDefault();
-    if (profilesLength === 5) {
+    if (profiles.length === 5) {
       return alert('max team reached');
     }
     fetch(`https://api.github.com/users/${inputVal}
@@ -48,6 +40,10 @@ const Form = ({ add, profilesLength }) => {
         if (response.message === 'Not Found') {
           alert('Could not find user!');
         } else {
+          console.log('fetched this ,', response);
+          // below line gives each object a unique id
+          response.profile_id = id;
+          generateId(id + 1);
           add(response);
         }
       })
