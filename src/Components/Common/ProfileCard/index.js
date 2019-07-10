@@ -55,10 +55,20 @@ const AnchorTag = styled.a`
   color: black;
 `;
 
-const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
+const Profile = ({
+  login,
+  avatar_url,
+  id,
+  name,
+  followers,
+  html_url,
+  profileNumber,
+  remove
+}) => {
   const [toClose, setToClose] = React.useState(false);
 
   const handleClose = () => {
+    remove(profileNumber);
     setToClose(true);
   };
 

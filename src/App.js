@@ -21,15 +21,31 @@ const App = () => {
     updateProfiles([...profiles, profileData]);
   };
 
+  const removeProfile = idNumber => {
+    updateProfiles(
+      profiles.filter(profile =>
+        profile.profile_id === idNumber ? null : profile
+      )
+    );
+  };
+  console.log(profiles);
   return (
     <>
       <PageTitle />
-      <Form add={addNewProfile} />
+      <Form add={addNewProfile} profilesLength={profiles.length} />
       <ProfilesContainer>
         {profiles.length > 0
           ? profiles.map((profile, id) => {
               id++;
-              return <Profile {...profile} key={id} />;
+              profile.profile_id = id;
+              return (
+                <Profile
+                  {...profile}
+                  key={id}
+                  profileNumber={id}
+                  remove={removeProfile}
+                />
+              );
             }, 0)
           : ''}
       </ProfilesContainer>
