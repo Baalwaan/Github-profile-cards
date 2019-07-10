@@ -7,7 +7,7 @@ import Exit from '../../../assets/close.png';
 const ProfileCard = styled.div`
   background: lightgray;
   border: solid black 1px;
-  // max-width: 27em;
+  width: 27em;
   padding: 1em;
   text-align: center;
 `;
@@ -79,7 +79,9 @@ const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
             <StyledLi>Followers: {followers}</StyledLi>
           </StyledUl>
         </ProfileInfo>
-        <Button label="Check Profile" />
+        <AnchorTag href={html_url} target="_blank">
+          <Button label="Check Profile" />
+        </AnchorTag>
       </ProfileCard>
     );
   } else return '';
