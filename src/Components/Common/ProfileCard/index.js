@@ -6,6 +6,7 @@ import Exit from '../../../assets/close.png';
 const ProfileCard = styled.div`
   background: lightgray;
   border: solid black 1px;
+  // max-width: 27em;
   padding: 1em;
 `;
 
@@ -28,8 +29,7 @@ const ProfileInfo = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  min-width: 25em;
-  padding: 0.75em;
+  width: 100%;
 `;
 
 const ProfileImg = styled.img`
@@ -37,17 +37,16 @@ const ProfileImg = styled.img`
   border: solid grey 2px;
 `;
 
-const StyledUl = styled.ul``;
+const StyledUl = styled.ul`
+  width: 10em;
+`;
 
 const Li = styled.li`
   list-style: none;
   padding: 0.5em;
 `;
 
-
-const 
-
-const Profile = ({ login, avatar_url, id, name, followers }) => {
+const Profile = ({ login, avatar_url, id, name, followers, html_url }) => {
   const [toClose, setToClose] = React.useState(false);
 
   const handleClose = () => {
@@ -64,7 +63,7 @@ const Profile = ({ login, avatar_url, id, name, followers }) => {
         <ProfileInfo>
           <ProfileImg src={avatar_url} alt={name} />
           <StyledUl>
-            <Li>Id: {id}</Li>
+            <Li>ID: {id}</Li>
             <Li>Name: {name}</Li>
             <Li>Followers: {followers}</Li>
           </StyledUl>
