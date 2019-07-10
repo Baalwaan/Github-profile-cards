@@ -13,6 +13,10 @@ const ExitContainer = styled.div`
   text-align: right;
 `;
 
+const ExitButton = styled.img`
+  cursor: pointer;
+`;
+
 const Title = styled.h2`
   text-align: center;
   padding: 0;
@@ -51,11 +55,11 @@ const Profile = ({ login, avatar_url, id, name, followers }) => {
     return (
       <ProfileCard>
         <ExitContainer>
-          <img src={Exit} onClick={handleClose} />
+          <ExitButton src={Exit} onClick={handleClose} title="Close" />
         </ExitContainer>
         <Title>{login}</Title>
         <ProfileInfo>
-          <ProfileImg src={avatar_url} />
+          <ProfileImg src={avatar_url} alt={name} />
           <StyledUl>
             <Li>Id: {id}</Li>
             <Li>Name: {name}</Li>
